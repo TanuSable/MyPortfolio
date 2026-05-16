@@ -223,8 +223,7 @@
 }
 
 .portfolio-page .sidebar .nav-logo,
-.portfolio-page .sidebar .nav-link,
-.portfolio-page .sidebar .btn-share a {
+.portfolio-page .sidebar .nav-link {
   opacity: 1;
   visibility: visible;
 }
@@ -316,25 +315,6 @@
   left: 0;
   right: 0;
   margin: auto;
-}
-
-.portfolio-page .btn-share {
-  position: absolute;
-  bottom: 1.8rem;
-  left: 0;
-  right: 0;
-  text-align: center;
-}
-
-.portfolio-page .btn-share a {
-  color: var(--text-color);
-  font-size: 1.25rem;
-  margin: 0 0.35rem;
-  transition: 0.3s;
-}
-
-.portfolio-page .btn-share a:hover {
-  color: var(--accent-text);
 }
 
 .portfolio-page .main {
@@ -1273,8 +1253,7 @@
     z-index: 999;
     transform: translateX(-100%);
   }
-  .portfolio-page .nav-logo,
-  .portfolio-page .btn-share {
+  .portfolio-page .nav-logo {
     display: none;
   }
   .portfolio-page .nav-menu {

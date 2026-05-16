@@ -1,10 +1,3 @@
-export type ExperienceItem = {
-  role: string;
-  company: string;
-  period: string;
-  points: string[];
-};
-
 export type ProjectItem = {
   name: string;
   stack: string;
@@ -132,22 +125,6 @@ export const skillCategories: SkillCategory[] = [
   }
 ];
 
-export const experience: ExperienceItem[] = [
-  {
-    role: "Frontend Developer",
-    company: "Duredev Private Limited, Indore",
-    period: "Jan 2024 — Present",
-    points: [
-      "Developed responsive, scalable web applications with React.js, Next.js, TypeScript, and Tailwind CSS.",
-      "Built backend services and REST APIs with Node.js and Express.js for workflows and integrations.",
-      "Designed schemas and queries with MongoDB and SQL for storage and backend operations.",
-      "Translated Figma designs into pixel-perfect, reusable components with strong responsiveness.",
-      "Integrated REST and GraphQL APIs with robust async handling for dynamic applications.",
-      "Shipped real-time features with WebSockets, Git workflows, CI/CD, and agile collaboration."
-    ]
-  }
-];
-
 export const projects: ProjectItem[] = [
   {
     name: "TalentPass — Credential Platform",
@@ -261,12 +238,6 @@ export const highlights: HighlightItem[] = [
   }
 ];
 
-export const education = {
-  institute: "Shri Vaishnav Vidyapeeth Vishwavidyalaya, Indore, MP",
-  degree: "BCA + MCA",
-  year: "2025"
-};
-
 export const workFilters = [
   { id: "all", label: "All" },
   { id: "web", label: "Web" },
@@ -274,9 +245,3 @@ export const workFilters = [
 ] as const;
 
 export type WorkFilter = (typeof workFilters)[number]["id"];
-
-export const skills = skillCategories.flatMap((category) =>
-  category.skills.map((skill) => skill.name)
-);
-
-export const heroImages = [profile.avatar, projects[0].image, projects[1].image];

@@ -2,10 +2,6 @@
 
 import { useEffect } from "react";
 
-/**
- * Same-page hash links use smooth scrolling. Targets should use CSS `scroll-margin-top`
- * for offset under fixed UI. Respects `prefers-reduced-motion`.
- */
 export function useSmoothScroll(enabled: boolean) {
   useEffect(() => {
     if (!enabled || typeof window === "undefined") return;
