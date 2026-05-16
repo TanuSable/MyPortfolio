@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { PortfolioLoader } from "@/components/portfolio/PortfolioLoader";
 import { usePortfolioAnimations } from "@/hooks/usePortfolioAnimations";
 import { useSkillsAutoplay } from "@/hooks/useSkillsAutoplay";
@@ -35,7 +35,6 @@ type BootPhase = "loading" | "intro" | "ready";
 
 export function PortfolioApp() {
   const [phase, setPhase] = useState<BootPhase>("loading");
-  const [sidebarOpen, setSidebarOpen] = useState(false);
   const [activeNav, setActiveNav] = useState("home");
   const [activeSkill, setActiveSkill] = useState(skillCategories[0].id);
   const [workFilter, setWorkFilter] = useState<WorkFilter>("all");
@@ -57,8 +56,6 @@ export function PortfolioApp() {
   useSmoothScroll(phase === "ready");
 
   const selectSkill = useSkillsAutoplay(skillCategories, setActiveSkill, phase === "ready");
-
-  const closeSidebar = useCallback(() => setSidebarOpen(false), []);
 
   useEffect(() => {
     const previousScrollRestoration = history.scrollRestoration;
@@ -115,20 +112,10 @@ export function PortfolioApp() {
 
       {phase === "loading" && <PortfolioLoader onComplete={() => setPhase("intro")} />}
 
-      <button
-        type="button"
-        className="nav-toggle"
-        id="nav-toggle"
-        aria-label="Open menu"
-        onClick={() => setSidebarOpen(true)}
-      >
-        <i className="uil uil-bars" />
-      </button>
-
-      <aside className={`sidebar${sidebarOpen ? " show-sidebar" : ""}`} id="sidebar">
+      <aside className="sidebar" id="sidebar">
         <nav className="nav">
           <div className="nav-logo">
-            <a href="#home" className="nav-logo-text" onClick={closeSidebar}>
+            <a href="#home" className="nav-logo-text">
               {profile.shortName}
             </a>
           </div>
@@ -141,7 +128,6 @@ export function PortfolioApp() {
                     <a
                       href={`#${item.id}`}
                       className={`nav-link${activeNav === item.id ? " active-link" : ""}`}
-                      onClick={closeSidebar}
                     >
                       {item.label}
                     </a>
@@ -151,15 +137,6 @@ export function PortfolioApp() {
             </div>
           </div>
 
-          <button
-            type="button"
-            className="nav-close"
-            id="nav-close"
-            aria-label="Close menu"
-            onClick={closeSidebar}
-          >
-            <i className="uil uil-times" />
-          </button>
         </nav>
       </aside>
 
