@@ -325,13 +325,31 @@
 }
 
 .portfolio-page .home {
+  position: relative;
   background-size: cover;
   background-position: center;
   height: 100vh;
 }
 
+.portfolio-page .home::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.9) 0%,
+    rgba(0, 0, 0, 0.85) 30%,
+    rgba(0, 0, 0, 0.72) 55%,
+    rgba(0, 0, 0, 0.45) 75%,
+    rgba(0, 0, 0, 0.15) 100%
+  );
+  z-index: 0;
+  pointer-events: none;
+}
+
 .portfolio-page .home-container {
   position: relative;
+  z-index: 1;
   height: 100%;
   align-items: center;
 }
@@ -1529,6 +1547,10 @@
     height: auto;
     min-height: auto;
     padding: 5.5rem 0 2rem;
+  }
+
+  .portfolio-page .home::before {
+    display: none;
   }
 
   .portfolio-page .home-container {
