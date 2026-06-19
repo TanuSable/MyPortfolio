@@ -51,8 +51,8 @@ export const profile = {
   whatsapp: "+917898878935",
   resumeUrl: "/resume/TanuSableFS.pdf",
   title: "Full Stack Developer",
-  avatar: "/images/profile.png",
-  homeBg: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1920&q=80",
+  avatar: "/images/website-profile.png",
+  homeBg: "/images/bg.jpg",
   summary:
     "Full Stack Developer with 2+ years of experience building responsive, scalable, and high-performance web applications using React.js, Next.js, Node.js, Express.js, MongoDB, SQL, and TypeScript.",
   aboutDescription:
